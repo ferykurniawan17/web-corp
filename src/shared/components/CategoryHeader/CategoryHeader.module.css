@@ -1,0 +1,27 @@
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.title {
+  font-size: 48px;
+  color: #0062E0;
+  font-weight: bold;
+}
+
+.description {
+  color: #848484;
+}
+
+.menu {
+  border-top: 1px solid #D6D6D6;
+  border-bottom: 1px solid #4B4B4B;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 40px;
+}
+
+.menuItem {
+  padding: 10px 20px;
+  color: #929292;
+}

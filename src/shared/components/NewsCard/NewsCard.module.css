@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.topContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.topContent > label {
+  color: #848484;
+  font-size: 12px;
+}
+
+.date {
+  color: #848484;
+  font-size: 12px;
+}
+
+.photoContainer {
+  margin-bottom: 10px;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+}
+
+.infoContainer {
+  
+}
+
+.title {
+  font-size: 32px;
+  color: #4B4B4B;
+}
+
+.smallTitle {
+  font-size: 21px;
+}
+
+.description {
+  margin-top: 10px;
+  color: #848484;
+}
+
+.linkContainer {
+  margin-top: 20px;
+}
+
+.link {
+  color: #0062E0;
+  font-size: 14px;
+}
+
+.datebottomContainer {
+  margin-top: 10px;
+}

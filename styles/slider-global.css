@@ -1,0 +1,80 @@
+.banner-slider .carousel.carousel-slider .control-arrow {
+  position: absolute;
+  bottom: 40px;
+  height: 50px;
+  right: 10px;
+  width: 50px;
+  top: auto;
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 100px;
+}
+
+.banner-slider .carousel.carousel-slider .control-arrow.control-prev {
+  left: auto;
+  right: 160px;
+}
+
+.banner-slider .carousel.carousel-slider .control-arrow.control-next {
+  right: 100px;
+}
+
+.banner-slider .carousel .control-dots {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-slider .carousel .control-dots li {
+  list-style-type: none;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+  border-radius: 100px;
+}
+
+.banner-slider .carousel .control-dots li.selected {
+  background-color: #fff;
+}
+
+.carousel-status {
+  display: none;
+}
+
+
+/* @media only screen and (min-width : 321px) and (max-width : 768px) {
+  .banner-slider .carousel .slider-wrapper, 
+  .banner-slider .carousel .slider-wrapper ul,
+  .banner-slider .carousel .slider-wrapper ul li > div {
+    height: 100%!important;
+  }
+
+  .carousel .slider-wrapper ul li > div img {
+    height: 100%!important;
+    width: auto;
+  }
+
+  .banner-slider .carousel.carousel-slider .control-arrow {
+    display: none;
+  }
+
+  .banner-slider .carousel .control-dots {
+    bottom: 0;
+    display: inline-block;
+    top: inherit;
+    right: 20px;
+    flex-direction: column;
+  }
+
+  .banner-slider .carousel .control-dots li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+} */

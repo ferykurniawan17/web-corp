@@ -1,0 +1,92 @@
+.container {
+  background-color: #fff;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.instantionContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.instantionLeft {
+  flex: 1;
+}
+
+.instantionRight {
+  display: flex;
+  flex-direction: row;
+  width: 35%;
+  justify-content: space-between;
+}
+
+.imageJSC {
+  width: 100px;
+}
+
+.imageDKI {
+  width: 80px;
+  height: auto;
+}
+
+.imageColaboration {
+  width: 163px;
+  height: 67px;
+}
+
+.menuContainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.menuItem {
+  flex: 1;
+}
+
+.menuSosmed {
+  width: 35%;
+}
+
+.menuTitle {
+  font-size: 15px;
+  color: #0048A4;
+  font-weight: bold;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  /* Styles */
+  .instantionContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .imageJSC {
+    width: 60px;
+  }
+  
+  .imageDKI {
+    width: 60px;
+    height: auto;
+  }
+  
+  .imageColaboration {
+    width: 100px;
+    height: auto;
+  }
+
+  .instantionRight {
+    width: inherit;
+    flex: 1;
+  }
+
+  .menuContainer {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .menuSosmed {
+    width: unset;
+  }
+}

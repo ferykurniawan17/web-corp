@@ -1,0 +1,47 @@
+.wrapper {
+  margin-top: 30px;
+}
+
+.titleContainer {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #848484;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 28px;
+  color: #4B4B4B;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.container > * {
+  width: 32%;
+  margin-right: 1.2%;
+}
+
+.sideCardNoborder {
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  /* Styles */
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .container > * {
+    width: auto;
+  }
+
+}

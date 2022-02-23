@@ -1,0 +1,18 @@
+.buttonContiner {
+  display: flex;
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+}
+
+.carouselWrapper {
+  height: 400px;
+}
+
+.carouselWrapper > div {
+  height: 100%;
+}
+
+.carouselWrapper .slider-wrapper {
+  height: 100%;
+}

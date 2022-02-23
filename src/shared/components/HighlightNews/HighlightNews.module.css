@@ -1,0 +1,57 @@
+.wrapper {
+  padding-top: 30px;
+}
+
+.titleContainer {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #848484;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 28px;
+  color: #4B4B4B;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftSide {
+  flex: 2;
+}
+
+.rightSide {
+  flex: 1;
+  margin-left: 40px;
+}
+
+.sideCardNoborder {
+  margin-bottom: 40px;
+}
+
+.sideCard {
+  margin-bottom: 40px;
+  padding-top: 10px;
+  border-top: 1px solid #848484;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  /* Styles */
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    flex-direction: column;
+  }
+
+  .rightSide {
+    flex: 1;
+    margin-left: 0;
+  }
+}
