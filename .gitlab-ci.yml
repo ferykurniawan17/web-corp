@@ -17,7 +17,7 @@ release:
   tags:
     - docker
   before_script:
-    - docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
   script:
     - docker build --rm --tag $APP_IMAGE:$CI_BUILD_REF_NAME .
     - docker push $APP_IMAGE:$CI_BUILD_REF_NAME
@@ -31,7 +31,7 @@ deploy:development:
     name: development
     url: "$DEV_URL"
   before_script:
-    - docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
     - docker pull $ANSIBLE_IMAGE
     - (echo "$DOCKER_ENV") > deploy/docker_env
     - (echo "$DEV_INVENTORY") > deploy/inventory
@@ -42,11 +42,12 @@ deploy:development:
     - docker run --rm -i
         -v `pwd`:/app
         --env-file env
+        --env-file docker_env
         --env-file swarm_env
         --env ANSIBLE_HOST_KEY_CHECKING=False
         $ANSIBLE_IMAGE
           ansible-playbook -i inventory
-            -e service_image="$APP_IMAGE:$CI_COMMIT_REF_NAME"
+            -e service_image="$APP_IMAGE:$CI_BUILD_REF_NAME"
             deploy-service.yml
 
 deploy:production:
@@ -61,7 +62,7 @@ deploy:production:
     name: production
     url: "$PROD_URL"
   before_script:
-    - docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
     - docker pull $ANSIBLE_IMAGE
     - (echo "$DOCKER_ENV") > deploy/docker_env
     - (echo "$PROD_INVENTORY") > deploy/inventory
@@ -72,9 +73,10 @@ deploy:production:
     - docker run --rm -i
         -v `pwd`:/app
         --env-file env
+        --env-file docker_env
         --env-file swarm_env
         --env ANSIBLE_HOST_KEY_CHECKING=False
         $ANSIBLE_IMAGE
           ansible-playbook -i inventory
-            -e service_image="$APP_IMAGE:$CI_COMMIT_REF_NAME"
+            -e service_image="$APP_IMAGE:$CI_BUILD_REF_NAME"
             deploy-service.yml
