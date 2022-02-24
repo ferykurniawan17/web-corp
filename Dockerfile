@@ -20,7 +20,7 @@ COPY --from=build /build/docker/docker-entrypoint.sh ./docker-entrypoint.sh
 COPY --from=build /build/package*.json ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
-RUN yarn add next@12.0.6
+RUN yarn add next@10.0.0
 RUN yarn cache clean
 
 EXPOSE 3036
