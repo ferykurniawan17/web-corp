@@ -24,6 +24,20 @@ a {
   background-color: #E5E5E5;
 }
 
+.tranparentMenu {
+  background-color: transparent!important;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+}
+
+.tranparentMenu.navbar-light .navbar-nav .nav-link {
+  color: #fff!important;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 @media only screen and (min-width : 321px) {
   /* Styles */
   .container {

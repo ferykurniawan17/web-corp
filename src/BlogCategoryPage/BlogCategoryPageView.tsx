@@ -26,7 +26,7 @@ const BlogCategoryPageView = () => {
 
   return (
     <>
-      <MainMenu />
+      <MainMenu transperant={false} />
       <div className={'bg-container'}>
         <CategoryHeader categoryName='Smart City' menus={menus} />
         <HighlightNews />

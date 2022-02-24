@@ -1,0 +1,61 @@
+.container {
+  padding-top: 150px;
+}
+
+.title {
+  font-size: 32px;
+  color: #171717;
+  font-weight: 400;
+}
+
+.description {
+  color: #0062E2;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.shortDescription {
+  color: #848484;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.authorContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.author {
+  flex: 1;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.date {
+
+}
+
+.dateValue {
+  color: #848484;
+}
+
+.label {
+  color: #848484;
+  margin-right: 10px;
+}
+
+.value {
+  color: #4B4B4B;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  .container {
+    padding-top: 100px;
+  }
+}

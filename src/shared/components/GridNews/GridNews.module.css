@@ -32,8 +32,8 @@
 @media only screen and (min-width : 321px) and (max-width : 768px) {
   /* Styles */
   .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .container {

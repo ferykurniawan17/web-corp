@@ -30,7 +30,7 @@ const BlogLandingPageView = () => {
 
   return (
     <>
-      <MainMenu />
+      <MainMenu transperant={true} />
       <BannerSlider data={[banner, banner, banner]} />
       <CategoryMenu menu={menus} />
       <div className={'bg-container'}>

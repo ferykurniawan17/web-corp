@@ -23,7 +23,6 @@ const BannerSlider = ({ data }: BannerSliderProps) => {
         showArrows
         stopOnHover
         swipeable
-        dynamicHeight
         className={styles.carouselWrapper}
         renderIndicator={(onClickHandler, isSelected, index, label) => (
           <li className={isSelected ? 'selected' : ''} onClick={onClickHandler} key={`${index}`} />

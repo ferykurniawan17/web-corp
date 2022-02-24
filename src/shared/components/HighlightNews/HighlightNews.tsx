@@ -11,8 +11,8 @@ type HighlightNewsProps = {
 
 const HighlightNews = (props: HighlightNewsProps) => {
   return (
-    // <Container fluid>
-      <div className={cx('container', styles.wrapper)}>
+    <Container>
+      <div className={cx(styles.wrapper)}>
         {!!props.title && (
           <div className={styles.titleContainer}>
             <Typography className={styles.title} variant='h1'>{props.title}</Typography>
@@ -80,7 +80,7 @@ const HighlightNews = (props: HighlightNewsProps) => {
           </div>  
         </div>
       </div>
-    // </Container>
+    </Container>
   );
 };
 
