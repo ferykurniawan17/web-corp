@@ -33,6 +33,7 @@ deploy:development:
   before_script:
     - docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
     - docker pull $ANSIBLE_IMAGE
+    - (echo "$DOCKER_ENV") > deploy/docker_env
     - (echo "$DEV_INVENTORY") > deploy/inventory
     - (echo "$DEV_ENV") > deploy/env
     - (echo "$DEV_SWARM_ENV") > deploy/swarm_env
@@ -62,6 +63,7 @@ deploy:production:
   before_script:
     - docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
     - docker pull $ANSIBLE_IMAGE
+    - (echo "$DOCKER_ENV") > deploy/docker_env
     - (echo "$PROD_INVENTORY") > deploy/inventory
     - (echo "$PROD_ENV") > deploy/env
     - (echo "$PROD_SWARM_ENV") > deploy/swarm_env
