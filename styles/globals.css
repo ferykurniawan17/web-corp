@@ -38,6 +38,10 @@ a {
   margin-right: 15px;
 }
 
+.navbar-light .navbar-nav .nav-link.active {
+  border-bottom: 1px solid #0062E0;
+}
+
 @media only screen and (min-width : 321px) {
   /* Styles */
   .container {

@@ -37,7 +37,7 @@ const MainMenu = (props: MainMenuProps) => {
       <Container fluid>
         <Navbar.Brand href="#">
           <Link href={'/blog'}>
-            <img className={styles.logo} src='/images/jkt-colaboration.png' />
+            <img className={styles.logo} src='/images/app-logo-white.png' />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setTransperant(false)} />
