@@ -35,7 +35,7 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: 18px;
   color: #4B4B4B;
 }
 
@@ -59,4 +59,15 @@
 
 .datebottomContainer {
   margin-top: 10px;
+}
+
+@media only screen and (min-width : 321px) {
+  /* Styles */
+  .title {
+    font-size: 18px;
+  }
+
+  .linkContainer {
+    margin-top: 0px;
+  }
 }

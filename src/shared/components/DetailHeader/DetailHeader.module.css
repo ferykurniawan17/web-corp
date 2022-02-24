@@ -48,10 +48,12 @@
 .label {
   color: #848484;
   margin-right: 10px;
+  margin-bottom: 0;
 }
 
 .value {
   color: #4B4B4B;
+  margin-bottom: 0;
 }
 
 @media only screen and (min-width : 321px) and (max-width : 768px) {

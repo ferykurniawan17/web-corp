@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './SimpleVerticalNav.module.css';
-import { Typography } from '@mui/material';
-import cx from 'classnames';
 import Link from 'next/link';
 
 export type MenuType = {

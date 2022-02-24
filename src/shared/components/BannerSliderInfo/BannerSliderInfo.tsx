@@ -2,7 +2,6 @@ import React from 'react';
 import { BannerItemType } from 'src/shared/types/BannerType';
 import styles from './BannerSliderInfo.module.css';
 import cx from 'classnames';
-import { Typography } from '@mui/material';
 import { Container } from 'react-bootstrap';
 
 type BannerSliderInfoProps = BannerItemType;
@@ -18,8 +17,8 @@ const BannerSliderInfo = ({ title, description, imageUrl, alt, category, date }:
               <label>{category}</label>
               <label>{date}</label>
             </div>
-            <Typography className={styles.title} variant='h1'>{title}</Typography>
-            <Typography className={styles.description} variant='body1'>{description}</Typography>
+            <h1 className={styles.title}>{title}</h1>
+            <p className={styles.description}>{description}</p>
           </div>
         </Container>
       </div>

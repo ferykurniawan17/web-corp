@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './NewsCard.module.css';
-import { Typography } from '@mui/material';
 import cx from 'classnames';
 import Link from 'next/link';
 
@@ -30,7 +29,7 @@ const NewsCard = (props: NewsCardProps) => {
           <img src={props.imageUrl} className={styles.image} />
         </div>  
         <div className={styles.infoContainer}>
-          <Typography
+          <h2
             className={
               cx(
                 styles.title,
@@ -39,18 +38,17 @@ const NewsCard = (props: NewsCardProps) => {
                 }
               )
             }
-            variant='h2'
           >
             {props.title}
-          </Typography>
+          </h2>
           {!!props.description && (
-            <Typography className={styles.description} variant='body1'>{props.description}</Typography>
+            <p className={styles.description}>{props.description}</p>
           )}
         </div>  
         {props.readMoreLabel && (
           <div className={styles.linkContainer}>
             <Link href="/">
-              <a className={styles.link}>{props.readMoreLabel}</a>
+              <a className={styles.link}>{`${props.readMoreLabel} >`}</a>
             </Link>
           </div>
         )}

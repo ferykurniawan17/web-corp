@@ -54,6 +54,24 @@
   font-weight: bold;
 }
 
+.iconSet {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.iconSet > * {
+  margin-right: 20px;
+}
+
+.storeWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  /* justify-content: space-between; */
+}
+
 @media only screen and (min-width : 321px) and (max-width : 768px) {
   /* Styles */
   .instantionContainer {

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './GridNews.module.css';
 import cx from 'classnames';
-import { Typography } from '@mui/material';
 import NewsCard from 'src/shared/components/NewsCard/NewsCard';
 import { Container } from 'react-bootstrap';
 
@@ -14,7 +13,7 @@ const GridNews = (props: GridNewsProps) => {
     <Container>
       <div className={cx(styles.wrapper)}>
         <div className={styles.titleContainer}>
-          <Typography className={styles.title} variant='h1'>{props.title}</Typography>
+          <h1 className={styles.title}>{props.title}</h1>
         </div>
         <div className={styles.container}>
           <NewsCard
@@ -23,7 +22,7 @@ const GridNews = (props: GridNewsProps) => {
             smallTitle
             date='22 Jan 2022'
             dateBottom
-            imageUrl='https://st.depositphotos.com/1006899/3776/i/950/depositphotos_37765339-stock-photo-news.jpg'
+            imageUrl='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmV3c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
             onClick={() => {}}
             className={styles.sideCardNoborder}
             link={'/blog/detail/detail-blog'}
@@ -34,7 +33,7 @@ const GridNews = (props: GridNewsProps) => {
             metaTitle='Jakarta Tanggap Covid-19'
             date='22 Jan 2022'
             dateBottom
-            imageUrl='https://st.depositphotos.com/1006899/3776/i/950/depositphotos_37765339-stock-photo-news.jpg'
+            imageUrl='https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bmV3c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
             onClick={() => {}}
             className={styles.sideCardNoborder}
             link={'/blog/detail/detail-blog'}
@@ -45,7 +44,7 @@ const GridNews = (props: GridNewsProps) => {
             metaTitle='Jakarta Tanggap Covid-19'
             date='22 Jan 2022'
             dateBottom
-            imageUrl='https://st.depositphotos.com/1006899/3776/i/950/depositphotos_37765339-stock-photo-news.jpg'
+            imageUrl='https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG5ld3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
             onClick={() => {}}
             className={styles.sideCardNoborder}
             link={'/blog/detail/detail-blog'}
@@ -56,7 +55,7 @@ const GridNews = (props: GridNewsProps) => {
             metaTitle='Jakarta Tanggap Covid-19'
             date='22 Jan 2022'
             dateBottom
-            imageUrl='https://st.depositphotos.com/1006899/3776/i/950/depositphotos_37765339-stock-photo-news.jpg'
+            imageUrl='https://images.unsplash.com/photo-1503694978374-8a2fa686963a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmV3c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
             onClick={() => {}}
             className={styles.sideCardNoborder}
             link={'/blog/detail/detail-blog'}
@@ -67,7 +66,7 @@ const GridNews = (props: GridNewsProps) => {
             metaTitle='Jakarta Tanggap Covid-19'
             date='22 Jan 2022'
             dateBottom
-            imageUrl='https://st.depositphotos.com/1006899/3776/i/950/depositphotos_37765339-stock-photo-news.jpg'
+            imageUrl='https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG5ld3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
             onClick={() => {}}
             className={styles.sideCardNoborder}
             link={'/blog/detail/detail-blog'}
@@ -78,7 +77,7 @@ const GridNews = (props: GridNewsProps) => {
             metaTitle='Jakarta Tanggap Covid-19'
             date='22 Jan 2022'
             dateBottom
-            imageUrl='https://st.depositphotos.com/1006899/3776/i/950/depositphotos_37765339-stock-photo-news.jpg'
+            imageUrl='https://images.unsplash.com/photo-1557992260-ec58e38d363c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG5ld3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
             onClick={() => {}}
             className={styles.sideCardNoborder}
             link={'/blog/detail/detail-blog'}

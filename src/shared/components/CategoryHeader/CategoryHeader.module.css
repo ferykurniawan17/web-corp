@@ -19,9 +19,18 @@
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 40px;
+  display: flex;
+  flex-direction: row;
 }
 
 .menuItem {
   padding: 10px 20px;
   color: #929292;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  .menuItem {
+    padding: 10px 20px;
+    width: 100px;
+  }
 }

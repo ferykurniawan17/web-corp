@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './DetailHeader.module.css';
-import cx from 'classnames';
-import Link from 'next/link';
-
-
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import { Typography } from '@mui/material';
+import { Container } from 'react-bootstrap';
 
 type DetailHeaderProps = {
   title: string;
@@ -18,24 +13,24 @@ type DetailHeaderProps = {
 const DetailHeader = (props: DetailHeaderProps) => {
   return (
     <Container className={styles.container}>
-      <Typography className={styles.description} variant='body1'>{'Jakarta Kini'}</Typography>
-      <Typography className={styles.title} variant='h1'>{props.title}</Typography>
-      <Typography className={styles.shortDescription} variant='body1'>{props.shortDescription}</Typography>
+      <p className={styles.description}>{'Jakarta Kini'}</p>
+      <h1 className={styles.title}>{props.title}</h1>
+      <p className={styles.shortDescription}>{props.shortDescription}</p>
       <div className={styles.authorContainer}>
         <div className={styles.author}>
           <div className={styles.authorInfo}>
-            <Typography className={styles.label} variant='body1'>{'Oleh'}</Typography>
-            <Typography className={styles.value} variant='body1'>{props.authorName}</Typography>
+            <p className={styles.label}>{'Oleh'}</p>
+            <p className={styles.value}>{props.authorName}</p>
           </div>
           <div className={styles.authorInfo}>
-            <Typography className={styles.label} variant='body1'>{'Co-Writter'}</Typography>
+            <p className={styles.label}>{'Co-Writter'}</p>
             {props.coWritter.map((item: string) => (
-              <Typography className={styles.value} variant='body1'>{item}</Typography>
+              <p className={styles.value}>{item}</p>
             ))}
           </div>
         </div>
         <div className={styles.date}>
-          <Typography className={styles.value} variant='body1'>{props.date}</Typography>
+          <p className={styles.dateValue}>{props.date}</p>
         </div>
       </div>
     </Container>

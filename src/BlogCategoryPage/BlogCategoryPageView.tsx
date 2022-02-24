@@ -20,8 +20,6 @@ const BlogCategoryPageView = () => {
     { label: 'SMART CITY', link: '/blog/kategori/smart-city' },
     { label: 'SMARTCITIZEN' , link: '/blog/kategori/smartcitizen' },
     { label: 'TEKNOLOGI' , link: '/blog/kategori/teknologi' },
-    { label: 'JAKARTA HIJAU', link: '/blog/kategori/jakarta-hijau'  },
-    { label: '#JAKIBIKINGAMPANG', link: '/blog/kategori/jakibikingampang'  },
   ];
 
   return (
