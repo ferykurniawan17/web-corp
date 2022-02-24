@@ -16,9 +16,6 @@
         image: "{{ service_image | mandatory }}"
         resolve_image: yes
         force_update: yes
-        networks:
-          - "{{ lookup('env', 'SWARM_NETWORK_NAME') | mandatory }}"
-          - traefik
         replicas: "{{ lookup('env', 'SWARM_REPLICAS') | default(1, true) }}"
         limits:
           cpus: "{{ lookup('env', 'SWARM_LIMIT_CPUS') | default(0.5, true) }}"
@@ -26,10 +23,20 @@
         reservations:
           cpus: "{{ lookup('env', 'SWARM_RESERVE_CPUS') | default(0.1, true) }}"
           memory: "{{ lookup('env', 'SWARM_RESERVE_MEMORY') | default('64M', true) }}"
+        networks:
+          - "{{ lookup('env', 'SWARM_NETWORK_NAME') | mandatory }}"
+          - traefik
+        # publish:
+        #   - mode: ingress
+        #     published_port: "{{ lookup('env', 'SWARM_PUBLISHED_PORT') | mandatory }}"
+        #     target_port: "{{ lookup('env', 'SERVER_PORT') | default(80, true) }}"
         labels:
           traefik.enable: "true"
-          traefik.frontend.rule: "{{ lookup('env', 'SWARM_TRAEFIK_RULE') | mandatory }}"
-          traefik.port: "{{ lookup('env', 'SERVER_PORT') | mandatory }}"
+          traefik.docker.network: traefik
+          traefik.http.routers.landingpage.rule: "{{ lookup('env', 'SWARM_TRAEFIK_RULE') | mandatory }}"
+          traefik.http.routers.landingpage.entryPoints: web
+          traefik.http.routers.landingpage.service: landingpage-service
+          traefik.http.services.landingpage-service.loadbalancer.server.port: "{{ lookup('env', 'SERVER_PORT') | mandatory }}"
         env:
           PORT: "{{ lookup('env', 'PORT') | mandatory }}"
-          JAKI_DOMAIN: "{{ lookup('env', 'JAKI_DOMAIN') | mandatory }}"
+          WEBCORP_DOMAIN: "{{ lookup('env', 'WEBCORP_DOMAIN') | mandatory }}"
