@@ -26,9 +26,9 @@ export const AppContext = createContext<AppType>({
 export const useApp = () => useContext(AppContext);
 
 const AppContextProvider = ({ children, ...rest }: any) => {
-  if (typeof window === 'undefined') {
-    return null;
-  }
+  // if (typeof window === 'undefined') {
+  //   return null;
+  // }
   let appToken = rest.authorization;
 
   let myInterceptor: Nullable<any> = null;

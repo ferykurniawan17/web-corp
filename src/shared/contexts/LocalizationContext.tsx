@@ -1,6 +1,7 @@
 import React, { useContext, createContext, useState, useEffect } from 'react';
 import i18n from 'i18n-js';
 import wording from '../core/wording/wording';
+import { useRouter } from "next/router";
 
 type LocalizationContextType = {
   Localize: {
@@ -21,14 +22,12 @@ export const useLocalization = () => useContext(LocatizeContext);
 const LocalizationContextProvider = ({ children }: any) => {
 
   const [activeLocale, setActiveLocale] = useState('id');
+  const router = useRouter()
+  const { locale, locales, defaultLocale } = router;
 
-  useEffect(() => {
-    i18n.locale = activeLocale;
-  }, [activeLocale]);
-
+  i18n.locale = locale;
   i18n.translations = wording;
   i18n.defaultLocale = 'id';
-  i18n.locale = activeLocale;
   i18n.fallbacks = true;
   
   const getText = (name: string, obj?: Record<string, string>) => {

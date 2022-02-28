@@ -6,13 +6,16 @@ import Layout from '../src/core/Layout/Layout';
 // import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import AppContextProvider from 'src/shared/contexts/AppContext';
+import LocalizationContextProvider from '@/src/shared/contexts/LocalizationContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
-      <AppContextProvider>
-        <Component {...pageProps} />
-      </AppContextProvider>
+      <LocalizationContextProvider>
+        <AppContextProvider>
+          <Component {...pageProps} />
+        </AppContextProvider>
+      </LocalizationContextProvider>
     </Layout>
   );
 };
