@@ -2,21 +2,37 @@
   background-color: #0062E0;
 }
 
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .item {
-  padding: 10px;
-  width: 200px;
+  padding: 25px;
   color: #fff;
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
+  width: max-content;
+}
+
+.item a {
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
+  width: max-content;
 }
 
 .sliderContainer {
-  /* display: flex;
-  flex-direction: row; */
+  flex-direction: row;
+  flex: 1;
+  overflow-x: hidden;
 }
 
 .containerScroll {
-  overflow-x: hidden;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  position: relative;
 }
 
 .sliderCarousel {
@@ -24,7 +40,6 @@
 }
 
 .buttonLeft {
-  margin-right: 10px;
   display: flex;
   box-shadow: -12.86px 0px 17.86px rgba(0, 0, 0, 0.1);
   
@@ -39,7 +54,6 @@
 }
 
 .buttonRight {
-  margin-left: 10px;
   display: flex;
   box-shadow:  12.8592px 0px 17.86px rgba(0, 0, 0, 0.1);
 }
@@ -54,4 +68,28 @@
 
 .buttonGroup {
   position: absolute;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  .containerScroll {
+    display: inline-flex;
+  }
+
+  .sliderContainer {
+    overflow-x: scroll;
+  }
+
+  .buttonLeft {
+    display: none;
+  }
+
+  .buttonRight {
+    display: none;
+  }
+
+  .item {
+    width: max-content;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

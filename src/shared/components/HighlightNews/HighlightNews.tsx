@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './HighlightNews.module.css';
 import cx from 'classnames';
 import NewsCard from 'src/shared/components/NewsCard/NewsCard';
 import { Container } from 'react-bootstrap';
+import { useApp } from '../../contexts/AppContext';
 
 type HighlightNewsProps = {
   title?: string;
 };
 
 const HighlightNews = (props: HighlightNewsProps) => {
+
+  const { caller } = useApp();
+
+  // useEffect(() => {
+  //   caller.get('/entries')
+  // }, []);
+
   return (
     <Container>
       <div className={cx(styles.wrapper)}>
@@ -29,6 +37,7 @@ const HighlightNews = (props: HighlightNewsProps) => {
               onClick={() => {}}
               className={styles.sideCardNoborder}
               link={'/blog/detail/detail-blog'}
+              large
             />
             <NewsCard
               title='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
@@ -40,6 +49,7 @@ const HighlightNews = (props: HighlightNewsProps) => {
               onClick={() => {}}
               className={styles.sideCard}
               link={'/blog/detail/detail-blog'}
+              large
             />
           </div>  
           <div className={styles.rightSide}>
