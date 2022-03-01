@@ -24,12 +24,11 @@ const GridNews = ({ title, articles }: GridNewsProps) => {
           {articles.map((item: ArticleItemType, i: number) => (
             <NewsCard
               title={Localize.locale === 'id' ? item.name : item.name_english}
-              metaTitle='Jakarta Tanggap Covid-19'
+              metaTitle={Localize.locale === 'id' ? item.short_description : item.short_description_english}
               smallTitle
-              date='22 Jan 2022'
+              date={item.publish_date}
               dateBottom
               imageUrl='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmV3c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              onClick={() => {}}
               className={styles.sideCardNoborder}
               link={`/blog/detail/${item.slug}`}
             />
@@ -39,5 +38,9 @@ const GridNews = ({ title, articles }: GridNewsProps) => {
     </Container>
   );
 };
+
+GridNews.defaultProps = {
+  articles: [],
+}
 
 export default GridNews;

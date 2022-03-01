@@ -3,6 +3,8 @@ import i18n from 'i18n-js';
 import wording from '../core/wording/wording';
 import { useRouter } from "next/router";
 
+import { id, enUS } from 'date-fns/locale';
+
 type LocalizationContextType = {
   Localize: {
     getText: (name: string, obj?: Record<string, string>) => string;
@@ -10,6 +12,7 @@ type LocalizationContextType = {
     defaultLocale: string;
     locale: string;
     locales: Array<string>;
+    localeDate: any;
   },
 };
 
@@ -20,6 +23,7 @@ export const LocatizeContext = createContext<LocalizationContextType>({
     defaultLocale: 'id',
     locale: 'id',
     locales: [],
+    localeDate: id,
   }
 });
 
@@ -54,6 +58,7 @@ const LocalizationContextProvider = ({ children }: any) => {
     defaultLocale,
     locale,
     locales,
+    localeDate: locale === 'id' ? id : enUS,
   }
 
   return (

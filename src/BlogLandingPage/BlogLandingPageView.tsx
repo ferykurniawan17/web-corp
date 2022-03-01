@@ -5,10 +5,10 @@ import CategoryMenu from 'src/shared/components/CategoryMenu/CategoryMenu';
 import HighlightNews from 'src/shared/components/HighlightNews/HighlightNews';
 import Footer from 'src/shared/components/Footer/Footer';
 import GridNews from 'src/shared/components/GridNews/GridNews';
-import { BannerItemType } from '../shared/types/BannerType';
 import { ArticleDataResType, ArticleItemType, CategoryItemType } from '../shared/types/BlogType';
 import { MenuItem } from '../shared/types/GeneralTypes';
 import { useLocalization } from '../shared/contexts/LocalizationContext';
+import format from 'date-fns/format';
 
 type BlogLandingPageViewProps = {
   categories: Array<CategoryItemType>;
@@ -44,11 +44,11 @@ const BlogLandingPageView = ({
       <BannerSlider
         data={banners.map((item: ArticleItemType, i: number) => ({
           title: Localize.locale === 'id' ? item.name : item.name_english,
-          description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit',
+          description: Localize.locale === 'id' ? item.short_description : item.short_description_english,
           alt: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit',
           imageUrl: 'https://pusdatin.kemkes.go.id/assets/js/JssorSlider/img/landscape/x01.jpg.pagespeed.ic.JJ1gF1F7s1.webp',
           category: 'Banner',
-          date: '12 Jan 2022',
+          date: format(new Date(item.publish_date), 'dd MMMM yyyy', { locale: Localize.localeDate }),
         }))}
       />
       <CategoryMenu menu={convertMenu()} />

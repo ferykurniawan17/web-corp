@@ -15,6 +15,10 @@
   font-size: 12px;
 }
 
+.topContent > label.labelMetaDesc {
+  flex: 1;
+}
+
 .date {
   color: #848484;
   font-size: 12px;

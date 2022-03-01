@@ -15,11 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-.container {
-  width: 1000px;
-  margin: 0 auto;
-}
-
 .bg-container {
   background-color: #E5E5E5;
 }
@@ -40,13 +35,4 @@ a {
 
 .navbar-light .navbar-nav .nav-link.active {
   border-bottom: 1px solid #0062E0;
-}
-
-@media only screen and (min-width : 321px) {
-  /* Styles */
-  .container {
-    width: auto;
-    margin: 0 auto;
-    overflow: hidden;
-  }
 }
