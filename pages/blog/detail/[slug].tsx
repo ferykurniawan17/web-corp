@@ -66,27 +66,10 @@ export async function getServerSideProps({ query }: any) {
     perPage: 6,
   };
   const { data: otherArticleData } = await post('/public-article/data', specOtherArticle);
-
-  let specCategory: TableSpecType = {
-    columns: [
-      { data: "id" },
-      { data: "slug" },
-      { data: "name" },
-      { data: "name_english" },
-    ],
-    order: {
-      column: 'name',
-      dir: 'asc'
-    },
-    page: 1,
-    perPage: 6,
-  };
-  const { data: category } = await post('/public-article-category/data', specCategory);
   const { data: detail } = await get('/public-article', { slug: query.slug });
 
   return {
     props: {
-      categories: category.data,
       otherArticle: otherArticleData,
       detailArticle: detail,
     },

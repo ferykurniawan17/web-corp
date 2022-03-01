@@ -22,7 +22,7 @@ const NewsCard = (props: NewsCardProps) => {
     <Link href={props.link}>
       <div className={cx(props.className, styles.container)}>
         <div className={styles.topContent}>
-          <label className={styles.labelMetaDesc}>{props.metaTitle}</label>
+          <label className={styles.labelMetaDesc}>{props.metaTitle.substring(0, 50)}</label>
           {!props.dateBottom && <label className={styles.date}>{props.date}</label>}
         </div>
         <div className={cx(styles.photoContainer, { [styles.large]: props.large })}>

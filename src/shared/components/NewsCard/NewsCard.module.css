@@ -46,8 +46,9 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 21px;
   color: #4B4B4B;
+  font-family: 'MessinaSans-SemiBold';
 }
 
 .smallTitle {
@@ -75,7 +76,11 @@
 @media only screen and (min-width : 321px) {
   /* Styles */
   .title {
-    font-size: 18px;
+    font-size: 28px;
+  }
+
+  .smallTitle {
+    font-size: 21px;
   }
 
   .linkContainer {
