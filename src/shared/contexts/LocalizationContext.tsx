@@ -7,6 +7,9 @@ type LocalizationContextType = {
   Localize: {
     getText: (name: string, obj?: Record<string, string>) => string;
     setLocale: (locale: string) => void;
+    defaultLocale: string;
+    locale: string;
+    locales: Array<string>;
   },
 };
 
@@ -14,20 +17,22 @@ export const LocatizeContext = createContext<LocalizationContextType>({
   Localize: {
     getText: (message, obj) => '',
     setLocale: (locale) => {},
+    defaultLocale: 'id',
+    locale: 'id',
+    locales: [],
   }
 });
 
 export const useLocalization = () => useContext(LocatizeContext);
 
 const LocalizationContextProvider = ({ children }: any) => {
-
-  const [activeLocale, setActiveLocale] = useState('id');
-  const router = useRouter()
+  const router = useRouter();
   const { locale, locales, defaultLocale } = router;
+  const [activeLocale, setActiveLocale] = useState(defaultLocale);
 
   i18n.locale = locale;
   i18n.translations = wording;
-  i18n.defaultLocale = 'id';
+  i18n.defaultLocale = defaultLocale;
   i18n.fallbacks = true;
   
   const getText = (name: string, obj?: Record<string, string>) => {
@@ -43,9 +48,12 @@ const LocalizationContextProvider = ({ children }: any) => {
     // TODO SAVE TO Storage 
   }
 
-  const Localize = {
+  const Localize: any = {
     getText,
     setLocale,
+    defaultLocale,
+    locale,
+    locales,
   }
 
   return (

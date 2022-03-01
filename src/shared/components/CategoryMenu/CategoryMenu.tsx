@@ -2,15 +2,11 @@ import React, { useRef, useEffect, useLayoutEffect, useState } from 'react';
 import styles from './CategoryMenu.module.css';
 import 'react-multi-carousel/lib/styles.css';
 import Link from 'next/link';
-import cx from 'classnames';
+// import cx from 'classnames';
 import { Container } from 'react-bootstrap';
+import { MenuItem } from '../../types/GeneralTypes';
 
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-
-export type MenuItem = {
-  label: string;
-  link?: string;
-};
+// import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 type CategoryMenuProps = {
   menu: Array<MenuItem>;

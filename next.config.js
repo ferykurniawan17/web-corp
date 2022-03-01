@@ -15,8 +15,7 @@ module.exports = (phase) => {
 
   const env = {
     API: (() => {
-      if (isDev) return 'https://dummyapi.io/data/api';
-      // if (isDev) return 'https://smartcity-dev.jakarta.go.id/api/v1';
+      if (isDev) return 'https://smartcity-dev.jakarta.go.id/api/v1';
       if (isProd) return 'https://smartcity-dev.jakarta.go.id/api/v1';
       if (isStaging) return 'https://smartcity-dev.jakarta.go.id/api/v1';
       return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
