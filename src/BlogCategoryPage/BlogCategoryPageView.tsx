@@ -4,35 +4,51 @@ import CategoryHeader from 'src/shared/components/CategoryHeader/CategoryHeader'
 import HighlightNews from 'src/shared/components/HighlightNews/HighlightNews';
 import Footer from 'src/shared/components/Footer/Footer';
 import GridNews from 'src/shared/components/GridNews/GridNews';
-import { BannerItemType } from '../shared/types/BannerType';
+import { ArticleDataResType, ArticleItemType, CategoryItemType } from '../shared/types/BlogType';
+import { useLocalization } from '../shared/contexts/LocalizationContext';
 
-const BlogCategoryPageView = () => {
-  const banner: BannerItemType = {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit',
-    alt: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit',
-    imageUrl: 'https://pusdatin.kemkes.go.id/assets/js/JssorSlider/img/landscape/x01.jpg.pagespeed.ic.JJ1gF1F7s1.webp',
-    category: 'Banner',
-    date: '12 Jan 2022',
-  };
+type BlogCategoryPageViewProps = {
+  categories: Array<CategoryItemType>;
+  hightlights: Array<ArticleItemType>;
+  otherArticle: ArticleDataResType;
+  categoryDetail: ArticleItemType;
+};
 
-  const menus = [
-    { label: 'SMART CITY', link: '/blog/kategori/smart-city' },
-    { label: 'SMARTCITIZEN' , link: '/blog/kategori/smartcitizen' },
-    { label: 'TEKNOLOGI' , link: '/blog/kategori/teknologi' },
-  ];
+const BlogCategoryPageView = ({
+  categories,
+  hightlights,
+  otherArticle,
+  categoryDetail,
+}: BlogCategoryPageViewProps) => {
+  const { Localize } = useLocalization();
 
   return (
     <>
       <MainMenu transperant={false} />
       <div className={'bg-container'}>
-        <CategoryHeader categoryName='Smart City' menus={menus} />
-        <HighlightNews />
-        <GridNews title='Artikel Smart City Lainnya' />
+        <CategoryHeader
+          categoryName={Localize.locale === 'id' ? categoryDetail.name : categoryDetail.name_english}
+          menus={categories.map((item: CategoryItemType) => ({
+            label: Localize.locale === 'id' ? item.name : item.name_english,
+            link: `/blog/kategori/${item.slug}`,
+          }))}
+        />
+        <HighlightNews
+          articles={hightlights}
+        />
+        <GridNews
+          title={Localize.getText('btnArticleDetail')}
+          articles={otherArticle.data}
+          total={otherArticle.recordsTotal}
+        />
       </div>
       <Footer />
     </>
   );
 }
+
+BlogCategoryPageView.defaultProps = {
+  categories: [],
+};
 
 export default BlogCategoryPageView;

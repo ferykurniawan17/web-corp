@@ -3,7 +3,7 @@ import { ArticleDataResType, ArticleItemType, CategoryItemType } from '@/src/sha
 import React from 'react';
 import BlogLandingPageContainer from 'src/BlogLandingPage/BlogLandingPageContainer';
 import MetaTag from 'src/core/Layout/MetaTag';
-import { get, post } from '@/src/core/services/APIService';
+import { post } from '@/src/core/services/APIService';
 import { TableSpecType } from '@/src/shared/types/APITableListType';
 
 type BlogLandingPageProps = {
