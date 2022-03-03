@@ -7,7 +7,7 @@
 
 @media only screen and (min-width : 321px) and (max-width : 768px) {
   .carouselWrapper {
-    height: 400px;
+    height: 500px;
   }
   
   .carouselWrapper > div {

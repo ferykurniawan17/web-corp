@@ -75,8 +75,8 @@
 @media only screen and (min-width : 321px) and (max-width : 768px) {
   /* Styles */
   .instantionContainer {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .imageJSC {
@@ -100,8 +100,8 @@
 
   .menuContainer {
     flex-direction: column;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .menuSosmed {

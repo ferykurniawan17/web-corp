@@ -31,5 +31,9 @@ module.exports = (phase) => {
     typescript: {
       ignoreBuildErrors: true,
     },
+    i18n: {
+      locales: ['id', 'en'],
+      defaultLocale: 'id',
+    },
   }
 }

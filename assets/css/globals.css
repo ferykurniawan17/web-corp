@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'MessinaSans-Regular';
+  src: url('../fonts/messinaSans/MessinaSans-Regular.ttf');
+  src: url('../fonts/messinaSans/MessinaSans-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MessinaSans-Light';
+  src: url('../fonts/messinaSans/MessinaSans-Light.ttf');
+  src: url('../fonts/messinaSans/MessinaSans-Light.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MessinaSans-LightItalic';
+  src: url('../fonts/messinaSans/MessinaSans-LightItalic.ttf');
+  src: url('../fonts/messinaSans/MessinaSans-LightItalic.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MessinaSans-SemiBold';
+  src: url('../fonts/messinaSans/MessinaSans-SemiBold.ttf');
+  src: url('../fonts/messinaSans/MessinaSans-SemiBold.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MessinaSans-Bold';
+  src: url('../fonts/messinaSans/MessinaSans-Bold.ttf');
+  src: url('../fonts/messinaSans/MessinaSans-Bold.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'MessinaSans-Regular', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-container {
+  /* background-color: #E5E5E5; */
+  background-color: #f7f7f7;
+}
+
+.tranparentMenu {
+  background-color: transparent!important;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+}
+
+.tranparentMenu.navbar-light .navbar-nav .nav-link {
+  color: #fff!important;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  border-bottom: 1px solid #0062E0;
+}

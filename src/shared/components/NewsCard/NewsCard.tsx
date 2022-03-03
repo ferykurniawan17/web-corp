@@ -12,9 +12,9 @@ type NewsCardProps = {
   title: string;
   description?: string;
   readMoreLabel?: string;
-  onClick: () => void;
   className?: any;
   link: string;
+  large: boolean;
 };
 
 const NewsCard = (props: NewsCardProps) => {
@@ -22,10 +22,10 @@ const NewsCard = (props: NewsCardProps) => {
     <Link href={props.link}>
       <div className={cx(props.className, styles.container)}>
         <div className={styles.topContent}>
-          <label>{props.metaTitle}</label>
+          <label className={styles.labelMetaDesc}>{props.metaTitle.substring(0, 50)}</label>
           {!props.dateBottom && <label className={styles.date}>{props.date}</label>}
         </div>
-        <div className={styles.photoContainer}>
+        <div className={cx(styles.photoContainer, { [styles.large]: props.large })}>
           <img src={props.imageUrl} className={styles.image} />
         </div>  
         <div className={styles.infoContainer}>
@@ -67,6 +67,7 @@ const NewsCard = (props: NewsCardProps) => {
 NewsCard.defaultProps = {
   smallTitle: false,
   dateBottom: false,
+  large: false,
 };
 
 export default NewsCard;
