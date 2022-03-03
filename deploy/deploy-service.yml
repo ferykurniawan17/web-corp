@@ -39,4 +39,4 @@
           traefik.http.services.landingpage-service.loadbalancer.server.port: "{{ lookup('env', 'SERVER_PORT') | mandatory }}"
         env:
           PORT: "{{ lookup('env', 'PORT') | mandatory }}"
-          WEBCORP_DOMAIN: "{{ lookup('env', 'WEBCORP_DOMAIN') | mandatory }}"
+          API: "{{ lookup('env', 'API') | mandatory }}"
