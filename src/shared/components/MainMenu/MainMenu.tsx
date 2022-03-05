@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './MainMenu.module.css';
 import cx from 'classnames';
 import Link from 'next/link';
-import { Search, X } from 'react-bootstrap-icons';
+import { Search, X, List } from 'react-bootstrap-icons';
 
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useLocalization } from '../../contexts/LocalizationContext';
@@ -54,7 +54,9 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
             <img className={styles.logo} src='/images/app-logo-white.png' />
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setTransperant(false)} />
+        <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setTransperant(false)}>
+          <List color={(transparent || showSearch) ? '#fff' : 'rgba(0,0,0,.55)'} />
+        </Navbar.Toggle>
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
