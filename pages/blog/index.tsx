@@ -5,6 +5,7 @@ import BlogLandingPageContainer from 'src/BlogLandingPage/BlogLandingPageContain
 import MetaTag from 'src/core/Layout/MetaTag';
 import { post } from '@/src/core/services/APIService';
 import { TableSpecType } from '@/src/shared/types/APITableListType';
+import { BlogColumnsSpec } from '@/src/shared/constants/BlogConstant';
 
 type BlogLandingPageProps = {
   categories: Array<CategoryItemType>;
@@ -39,29 +40,7 @@ const BlogLandingPage = ({
 };
 
 export async function getServerSideProps({ req, res, resolvedUrl }: any) {
-  const columns = [
-    { data: 'id' },
-    { data: 'slug' },
-    { data: 'name' },
-    { data: 'name_english' },
-    { data: 'featured' },
-    { data: 'description' },
-    { data: 'description_english' },
-    { data: 'short_description' },
-    { data: 'short_description_english' },
-    { data: 'meta_description' },
-    { data: 'meta_description_english' },
-    { data: 'cover_image_id' },
-    { data: 'category_id' },
-    { data: 'sub_category_id' },
-    { data: 'tags' },
-    { data: 'writer' },
-    { data: 'co_writer' },
-    { data: 'editor' },
-    { data: 'video_embed_link' },
-    { data: 'status' },
-    { data: 'publish_date' },
-  ]
+  const columns = BlogColumnsSpec;
   let specArticle: TableSpecType = {
     columns,
     order: {
@@ -71,7 +50,7 @@ export async function getServerSideProps({ req, res, resolvedUrl }: any) {
     page: 1,
     perPage: 6,
   };
-  const { data: articleData } = await post('/public-article/data', specArticle);
+  const { data: articleData } = await post('/public-article/data?group=utama', specArticle);
 
   let specBanner: TableSpecType = {
     columns,

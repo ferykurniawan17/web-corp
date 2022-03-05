@@ -7,6 +7,10 @@ import { Search, X, List } from 'react-bootstrap-icons';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useLocalization } from '../../contexts/LocalizationContext';
 import SimpleVerticalNav from 'src/shared/components/SimpleVerticalNav/SimpleVerticalNav';
+import { post } from '@/src/core/services/APIService';
+import { TableSpecType } from 'src/shared/types/APITableListType';
+import { BlogColumnsSpec } from '../../constants/BlogConstant';
+import { ArticleItemType } from '../../types/BlogType';
 
 type MainMenuProps = {
   transperant: boolean;
@@ -14,13 +18,15 @@ type MainMenuProps = {
 };
 
 const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
-
+  const [article, setArticle] = useState<Array<ArticleItemType>>([]);
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const refNav = useRef(null);
 
   const { Localize } = useLocalization();
   const [transparent, setTransperant] = useState<boolean>(false);
+
   useEffect(() => {
+    // getNews();
     setTransperant(transperant);
     window.addEventListener('scroll', () => {
       const menu = document.getElementById('navbarScroll');
@@ -36,6 +42,19 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
       }
     });
   }, []);
+
+  const getNews = async () => {
+    let spec: TableSpecType = {
+      columns: BlogColumnsSpec,
+      order: {
+        column: 'name',
+        dir: 'asc'
+      },
+      page: 1,
+      perPage: 6,
+    };
+    const { data: articleData } = await post('/public-article/data?group=utama', spec);
+  }
 
   const handleShowSearch = () => {
     setShowSearch(!showSearch);
@@ -112,7 +131,7 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
             <Container>
               <div className={styles.menuSearchContent}>
                 <div className={styles.menuSearchContentNav}>
-                  <h2 className={styles.menuSearchTitle}>{Localize.getText('searchMenuTitle')}</h2>
+                  <textarea placeholder={Localize.getText('searchMenuTitle')} className={styles.inputStyle}></textarea>
                   <div className={styles.blockMenu}>
                     <div className={styles.blockItem}>
                       <h3 className={styles.menuTitle}>{Localize.getText('popularMenuItem')}</h3>

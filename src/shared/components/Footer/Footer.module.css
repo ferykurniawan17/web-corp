@@ -72,7 +72,37 @@
   /* justify-content: space-between; */
 }
 
-@media only screen and (min-width : 321px) and (max-width : 768px) {
+.footerBottom {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #000000;
+}
+
+.footerBottomLeft {
+  width: 30%;
+}
+
+.footerBottomRight {
+  flex: 1;
+}
+
+.copyright {
+  font-family: 'MessinaSans-Regular';
+  font-size: 14px;
+}
+
+.langSelection {
+  width: 200px;
+  border: none;
+  background-color: #0062E0;
+  color: #fff;
+  padding: 10px 15px 10px 10px;
+  border-radius: 6px;
+}
+
+
+@media only screen and (min-width : 321px) and (max-width : 991px) {
   /* Styles */
   .instantionContainer {
     padding-left: 0;
@@ -106,5 +136,36 @@
 
   .menuSosmed {
     width: unset;
+  }
+
+  .footerBottom {
+    margin-top: 20px;
+  }
+
+  .footerBottomLeft {
+    width: unset;
+    flex: 1;
+  }
+  
+  .footerBottomRight {
+    flex: 1;
+  }
+}
+
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+  .footerBottom {
+    flex-direction: column;
+  }
+
+  .footerBottomLeft {
+    margin-bottom: 20px;
+  }
+  
+  .footerBottomRight {
+    flex: 1;
+  }
+
+  .langSelection {
+    width: 100%;
   }
 }

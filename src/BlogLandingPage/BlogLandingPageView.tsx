@@ -65,7 +65,7 @@ const BlogLandingPageView = ({
           total={otherArticle.recordsTotal}
         />
       </div>
-      <Footer />
+      <Footer pathName={pathName} />
     </>
   );
 }

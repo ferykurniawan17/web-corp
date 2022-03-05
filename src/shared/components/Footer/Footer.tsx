@@ -3,12 +3,23 @@ import styles from './Footer.module.css';
 import SimpleVerticalNav from 'src/shared/components/SimpleVerticalNav/SimpleVerticalNav';
 import Link from 'next/link';
 import { Facebook, Twitter, Youtube, Instagram } from 'react-bootstrap-icons';
+import { useLocalization } from '../../contexts/LocalizationContext';
+import { useRouter } from 'next/router';
 
 type FooterProps = {
-  
+  pathName: string;
 };
 
-const Footer = (props: FooterProps) => {
+const Footer = ({ pathName }: FooterProps) => {
+  const { Localize } = useLocalization();
+  const router = useRouter();
+
+  const handleChange = (e: any) => {
+    const lang = e.target.value;
+    console.log('====', lang);
+    router.push(pathName, pathName, { locale: lang })
+  }
+
   return (
     <div className={styles.container}>
       <div className='container'>
@@ -73,6 +84,17 @@ const Footer = (props: FooterProps) => {
                 </a>
               </Link>
             </div>
+          </div>
+        </div>
+        <div className={styles.footerBottom}>
+          <div className={styles.footerBottomLeft}>
+            <select className={styles.langSelection} onChange={handleChange}>
+              <option value={'id'} selected={Localize.locale === 'id'}>ID</option>
+              <option value={'en'} selected={Localize.locale === 'en'}>EN</option>
+            </select>
+          </div>
+          <div className={styles.footerBottomRight}>
+            <p>{Localize.getText('copyRight')}</p>
           </div>
         </div>
       </div>

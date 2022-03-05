@@ -176,6 +176,30 @@
   display: flex;
 }
 
+.inputStyle {
+  background-color: transparent;
+  width: 100%;
+  font-family: 'MessinaSans-Regular';
+  font-size: 28px;
+  border: none;
+  color: #fff;
+  opacity: 0.9;
+  outline: none;
+  border-bottom: 1px solid #fff;
+}
+
+.inputStyle::placeholder {
+  color: #fff;
+  opacity: 0.5;
+  font-family: 'MessinaSans-Regular';
+}
+
+.inputStyle:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+}
+
 @media only screen and (min-width : 768px) and (max-width : 991px) {
   .container {
     padding-left: 25px;
