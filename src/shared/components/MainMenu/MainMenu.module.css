@@ -124,7 +124,7 @@
 }
 
 .menuSearchContentRight {
-  width: 25%;
+  flex: 1;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
@@ -172,8 +172,8 @@
 @media only screen and (min-width : 321px) and (max-width : 991px) {
   /* Styles */
   .container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
     position: fixed;
     z-index: 2;
     width: 100%;
