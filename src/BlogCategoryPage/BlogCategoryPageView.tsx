@@ -12,6 +12,7 @@ type BlogCategoryPageViewProps = {
   hightlights: Array<ArticleItemType>;
   otherArticle: ArticleDataResType;
   categoryDetail: ArticleItemType;
+  pathName: string;
 };
 
 const BlogCategoryPageView = ({
@@ -19,12 +20,13 @@ const BlogCategoryPageView = ({
   hightlights,
   otherArticle,
   categoryDetail,
+  pathName,
 }: BlogCategoryPageViewProps) => {
   const { Localize } = useLocalization();
 
   return (
     <>
-      <MainMenu transperant={false} />
+      <MainMenu transperant={false} pathName={pathName} />
       <div className={'bg-container'}>
         <CategoryHeader
           categoryName={Localize.locale === 'id' ? categoryDetail.name : categoryDetail.name_english}

@@ -1,7 +1,7 @@
 .container {
   background-color: #fff;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 15px;
@@ -13,8 +13,17 @@
   z-index: 2;
 }
 
+.hideContainer {
+  position: relative;
+  width: 100vw;
+}
+
 .transparent > * {
   color: #fff!important;
+}
+
+.showMenu > * {
+  color: red!important;
 }
 
 .appLogo {}
@@ -52,6 +61,112 @@
 }
 
 .searchContent {}
+
+.menuRightSearch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.menuRightSearch > button {
+  margin-right: 20px;
+}
+
+.menuLang {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px;
+  color: #fff;
+}
+
+.menuLang > a {
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+}
+
+.menuLang > a:last-child {
+  margin-right: 0;
+}
+
+.menuLang .active::after {
+  content: '';
+  height: 5px;
+  background-color: #0062E0;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.menuSearch {
+  position: absolute;
+  background-color: #0062E0;
+  width: 100%;
+  top: 0;
+  padding-top: 45px;
+  padding-bottom: 25px;
+}
+
+.menuSearchContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.menuSearchContentNav {
+  flex: 1;
+}
+
+.menuSearchContentRight {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.btnClose {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 100px;
+}
+
+.menuSearchTitle {
+  color: #fff;
+  opacity: 0.5;
+  font-family: 'MessinaSans-Regular';
+  padding-bottom: 25px;
+  border-bottom: 1px solid #fff;
+}
+
+.blockMenu {
+  display: flex;
+  flex-direction: row;
+  margin-top: 45px;
+}
+
+.blockItem {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+  max-width: 200px;
+  min-width: 150px;
+}
+
+.menuTitle {
+  color: #fff;
+  font-family: 'MessinaSans-Bold';
+  font-size: 16px;
+}
+
+.blockItem li a {
+  color: #fff!important;
+}
+
 
 @media only screen and (min-width : 321px) and (max-width : 768px) {
   /* Styles */

@@ -13,13 +13,14 @@ type BlogDetailPageViewProps = {
   categories: Array<CategoryItemType>;
   otherArticle: ArticleDataResType;
   detailArticle: ArticleItemType;
+  pathName: string;
 };
 
-const BlogDetailPageView = ({ detailArticle, otherArticle }: BlogDetailPageViewProps) => {
+const BlogDetailPageView = ({ detailArticle, otherArticle, pathName }: BlogDetailPageViewProps) => {
   const { Localize } = useLocalization();
   return (
     <>
-      <MainMenu transperant={false} />
+      <MainMenu transperant={false} pathName={pathName} />
       <div className={'bg-container'}>
         <DetailHeader
           title={Localize.locale === 'id' ? detailArticle.name : detailArticle.name_english}

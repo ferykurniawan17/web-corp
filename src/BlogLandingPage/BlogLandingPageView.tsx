@@ -15,6 +15,7 @@ type BlogLandingPageViewProps = {
   hightlights: Array<ArticleItemType>;
   banners: Array<ArticleItemType>;
   otherArticle: ArticleDataResType;
+  pathName: string;
 };
 
 const BlogLandingPageView = ({
@@ -22,6 +23,7 @@ const BlogLandingPageView = ({
   hightlights,
   banners,
   otherArticle,
+  pathName,
 }: BlogLandingPageViewProps) => {
   const { Localize } = useLocalization();
 
@@ -40,7 +42,7 @@ const BlogLandingPageView = ({
 
   return (
     <>
-      <MainMenu transperant={true} />
+      <MainMenu transperant={true} pathName={pathName} />
       <BannerSlider
         data={banners.map((item: ArticleItemType, i: number) => ({
           title: Localize.locale === 'id' ? item.name : item.name_english,

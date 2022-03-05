@@ -10,9 +10,10 @@ type BlogDetailPageProps = {
   categories: Array<CategoryItemType>;
   otherArticle: ArticleDataResType;
   detailArticle: ArticleItemType;
+  pathName: string;
 };
 
-const BlogDetailPage = ({ categories, otherArticle, detailArticle }: BlogDetailPageProps) => {
+const BlogDetailPage = ({ categories, otherArticle, detailArticle, pathName }: BlogDetailPageProps) => {
   const { Localize } = useLocalization();
   const title = Localize.locale === 'id' ? detailArticle.name : detailArticle.name_english;
   const desc = Localize.locale === 'id' ? detailArticle.meta_description : detailArticle.meta_description_english;
@@ -26,12 +27,13 @@ const BlogDetailPage = ({ categories, otherArticle, detailArticle }: BlogDetailP
         categories={categories}
         otherArticle={otherArticle}
         detailArticle={detailArticle}
+        pathName={pathName}
       />
     </>
   )
 };
 
-export async function getServerSideProps({ query }: any) {
+export async function getServerSideProps({ req, res, resolvedUrl, query }: any) {
   const columns = [
     { data: 'id' },
     { data: 'slug' },
@@ -72,6 +74,7 @@ export async function getServerSideProps({ query }: any) {
     props: {
       otherArticle: otherArticleData,
       detailArticle: detail,
+      pathName: resolvedUrl,
     },
   }
 }

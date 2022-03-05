@@ -11,6 +11,7 @@ type CategoryPageProps = {
   hightlights: Array<ArticleItemType>;
   otherArticle: ArticleDataResType;
   categoryDetail: ArticleItemType;
+  pathName: string;
 };
 
 const CategoryPage = ({
@@ -18,6 +19,7 @@ const CategoryPage = ({
   hightlights,
   otherArticle,
   categoryDetail,
+  pathName,
 }: CategoryPageProps) => {
 
   const { Localize } = useLocalization();
@@ -36,13 +38,14 @@ const CategoryPage = ({
         categories={categories}
         hightlights={hightlights}
         otherArticle={otherArticle}
+        pathName={pathName}
       />
     </>
   )
 };
 
 
-export async function getServerSideProps({ query }: any) {
+export async function getServerSideProps({ req, res, resolvedUrl, query }: any) {
   const columns = [
     { data: 'id' },
     { data: 'slug' },
@@ -112,6 +115,7 @@ export async function getServerSideProps({ query }: any) {
       categories: category.data,
       hightlights: articleData.data,
       otherArticle: otherArticleData,
+      pathName: resolvedUrl,
     },
   }
 };

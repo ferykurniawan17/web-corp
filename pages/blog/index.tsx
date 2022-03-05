@@ -11,6 +11,7 @@ type BlogLandingPageProps = {
   hightlights: Array<ArticleItemType>;
   banners: Array<ArticleItemType>;
   otherArticle: ArticleDataResType;
+  pathName: string;
 };
 
 const BlogLandingPage = ({
@@ -18,6 +19,7 @@ const BlogLandingPage = ({
   hightlights,
   banners,
   otherArticle,
+  pathName,
 }: BlogLandingPageProps) => {
   return (
     <>
@@ -30,12 +32,13 @@ const BlogLandingPage = ({
         hightlights={hightlights}
         banners={banners}
         otherArticle={otherArticle}
+        pathName={pathName}
       />
     </>
   )
 };
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps({ req, res, resolvedUrl }: any) {
   const columns = [
     { data: 'id' },
     { data: 'slug' },
@@ -114,6 +117,7 @@ export async function getServerSideProps(context: any) {
       hightlights: articleData.data,
       banners: bannerData.data,
       otherArticle: otherArticleData,
+      pathName: resolvedUrl,
     },
   }
 };
