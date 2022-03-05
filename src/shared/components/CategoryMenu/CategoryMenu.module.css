@@ -23,6 +23,11 @@
   width: max-content;
 }
 
+.item a:hover {
+  color: #fff;
+  font-weight: bold;
+}
+
 .sliderContainer {
   flex-direction: row;
   flex: 1;

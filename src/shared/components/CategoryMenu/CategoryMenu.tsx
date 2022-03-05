@@ -33,11 +33,12 @@ function RightArrow({ scrollNext }: any) {
   );
 }
 
-function Card({ title, link }: any) {
+function Card({ title, link, style }: any) {
   return (
     <div
       className={styles.item}
       tabIndex={0}
+      style={style}
     >
       <Link href={link}>
         <a>{title}</a>
@@ -53,20 +54,36 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
 
   const [maxLeftWidth, setMaxLeftWidth] = useState<number>(0);
   const [areaWidth, setAreaWidth] = useState<number>(0);
+  const [contentWidth, setContentWidth] = useState<number>(0);
   const [currentLeft, setCurrentLeft] = useState<number>(0);
+  const [showArrow, setShowArrow] = useState<boolean>(true);
 
-  // if (typeof window !== 'undefined') {
-  //   useLayoutEffect(() => {
-  //     setAreaWidth(refSlider?.current.offsetWidth);
-  //     setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);  
-  //   }, []);
-  // }
+  if (typeof window !== 'undefined') {
+    useLayoutEffect(() => {
+      setAreaWidth(refSlider?.current?.offsetWidth);
+      setContentWidth(ref?.current?.offsetWidth);
+      setMaxLeftWidth(ref?.current?.offsetWidth - refSlider?.current?.offsetWidth);
+
+      if (ref?.current?.offsetWidth <= refSlider?.current?.offsetWidth) {
+        setShowArrow(false);
+      } else {
+        setShowArrow(true);
+      }
+
+    }, []);
+  }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener("resize", () => {
-        setAreaWidth(refSlider?.current.offsetWidth);
-        setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);  
+        setAreaWidth(refSlider?.current?.offsetWidth);
+        setContentWidth(ref?.current?.offsetWidth);
+        setMaxLeftWidth(ref?.current?.offsetWidth - refSlider?.current?.offsetWidth);  
+        if (ref?.current?.offsetWidth <= refSlider?.current?.offsetWidth) {
+          setShowArrow(false);
+        } else {
+          setShowArrow(true);
+        }
       });
     }
   }, []);
@@ -93,7 +110,7 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
     <div className={styles.container}>
       <Container>
         <div className={styles.mainContainer}>
-          <LeftArrow scrollPrev={handleScrollPrev} />
+          {showArrow && <LeftArrow scrollPrev={handleScrollPrev} />}
           <div ref={refSlider} className={styles.sliderContainer}>
             <div
               ref={ref}
@@ -109,11 +126,12 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
                   title={item.label}
                   key={`nav-${i}`}
                   link={item.link}
+                  style={{ paddingLeft: (i === 0 && !showArrow) && 0 }}
                 />
               ))}
             </div>
           </div>
-          <RightArrow scrollNext={handleScrollNext} />
+          {showArrow && <RightArrow scrollNext={handleScrollNext} />}
         </div>
       </Container>
     </div>
