@@ -79,11 +79,29 @@
     font-size: 28px;
   }
 
-  .smallTitle {
-    font-size: 21px;
-  }
-
   .linkContainer {
     margin-top: 0px;
+  }
+}
+
+@media only screen and (min-width : 321px) and (max-width : 991px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .smallTitle {
+    font-size: 18px;
+  }
+
+  .datebottomContainer {
+    margin-top: 0;
+  }
+
+  .photoContainer {
+    max-height: 400px;
+  }
+  
+  .photoContainer.large {
+    max-height: 400px;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './MainMenu.module.css';
 import cx from 'classnames';
 import Link from 'next/link';
@@ -16,12 +16,18 @@ type MainMenuProps = {
 const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
 
   const [showSearch, setShowSearch] = useState<boolean>(false);
+  const refNav = useRef(null);
 
   const { Localize } = useLocalization();
   const [transparent, setTransperant] = useState<boolean>(false);
   useEffect(() => {
     setTransperant(transperant);
     window.addEventListener('scroll', () => {
+      const menu = document.getElementById('navbarScroll');
+      if (menu?.className.indexOf('show') >= 0) {
+        setTransperant(false);
+        return;
+      }
       if (!transperant) return;
       if (window.pageYOffset > 2) {
         setTransperant(false);
@@ -39,6 +45,7 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
     <Navbar
       sticky="top"
       expand="lg"
+      ref={refNav}
       className={
         cx(
           styles.container, {
@@ -57,11 +64,20 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
         <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setTransperant(false)}>
           <List color={(transparent || showSearch) ? '#fff' : 'rgba(0,0,0,.55)'} />
         </Navbar.Toggle>
+        <div className={cx(styles.menuRightSearch, 'hearderMenuRightSearch', styles.hearderMenuRightSearchMobile)}>
+          <button className='btn-transparant' onClick={handleShowSearch}>
+            <Search color={(transparent || showSearch) ? '#fff' : 'rgba(0,0,0,.55)'} />
+          </button>
+          <div className={cx(styles.menuLang, 'headerMenuLang')}>
+            <a href={`/en${pathName}`} className={Localize.locale === 'en' ? styles.active : ''}>EN</a>
+            <a href={`/id${pathName}`} className={Localize.locale === 'id' ? styles.active : ''}>ID</a>
+          </div>
+        </div>
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{
-              maxHeight: '100px',
+              // maxHeight: '100px',
               marginLeft: 'auto!important',
               marginRight: 'unset!important',
             }}
@@ -80,7 +96,7 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
             <Nav.Link href="#action2">Kegiatan</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <div className={cx(styles.menuRightSearch, 'hearderMenuRightSearch')}>
+        <div className={cx(styles.menuRightSearch, 'hearderMenuRightSearch', styles.hearderMenuRightSearchDesktop)}>
           <button className='btn-transparant' onClick={handleShowSearch}>
             <Search color={(transparent || showSearch) ? '#fff' : 'rgba(0,0,0,.55)'} />
           </button>

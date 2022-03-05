@@ -91,6 +91,11 @@ a {
   color: #fff;
 }
 
+.tranparentMenu button.navbar-toggler.collapsed,
+.showMenu button.navbar-toggler.collapsed {
+  border-color: #fff!important;
+}
+
 .navbar-light .navbar-nav .nav-link.active {
   border-bottom: 1px solid #0062E0;
 }
