@@ -78,7 +78,10 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
       <Container fluid>
         <Navbar.Brand href="#">
           <Link href={'/blog'}>
-            <img className={styles.logo} src='/images/app-logo-white.png' />
+            <>
+              <img className={cx(styles.logo, 'whiteLogo')} src='/images/app-logo-white.png' />
+              <img className={cx(styles.logo, 'colorLogo')} src='/images/app-logo-color.png' />
+            </>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setTransperant(false)}>

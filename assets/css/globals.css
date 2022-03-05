@@ -65,12 +65,30 @@ a {
   margin-right: 15px;
 }
 
+.whiteLogo {
+  display: none;
+}
+
+.colorLogo {
+  display: block;
+}
+
 .tranparentMenu {
   background-color: transparent!important;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
+}
+
+.showMenu .whiteLogo, 
+.tranparentMenu .whiteLogo {
+  display: block;
+}
+
+.showMenu .colorLogo,
+.tranparentMenu .colorLogo {
+  display: none;
 }
 
 .showMenu {

@@ -87,6 +87,10 @@
   flex: 1;
 }
 
+.footerBottomRight p {
+  font-size: 14px;
+}
+
 .copyright {
   font-family: 'MessinaSans-Regular';
   font-size: 14px;

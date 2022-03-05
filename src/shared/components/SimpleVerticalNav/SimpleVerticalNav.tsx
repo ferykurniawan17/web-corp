@@ -17,7 +17,7 @@ const SimpleVerticalNav = (props: SimpleVerticalNavProps) => {
     <div className={styles.container}>
       <ul className={styles.menus}>
         {props.menus.map((item: MenuType, i: number) => (
-          <li>
+          <li key={`nav${item.label}${i}`}>
             <Link href={item.link || '/'}>
               <a>{item.label}</a>
             </Link>

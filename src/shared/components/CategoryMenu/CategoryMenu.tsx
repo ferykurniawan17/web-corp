@@ -55,12 +55,21 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
   const [areaWidth, setAreaWidth] = useState<number>(0);
   const [currentLeft, setCurrentLeft] = useState<number>(0);
 
-  if (typeof window !== 'undefined') {
-    useLayoutEffect(() => {
-      setAreaWidth(refSlider?.current.offsetWidth);
-      setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);  
-    }, []);
-  }
+  // if (typeof window !== 'undefined') {
+  //   useLayoutEffect(() => {
+  //     setAreaWidth(refSlider?.current.offsetWidth);
+  //     setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);  
+  //   }, []);
+  // }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", () => {
+        setAreaWidth(refSlider?.current.offsetWidth);
+        setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);  
+      });
+    }
+  }, []);
 
   const handleScrollNext = () => {
     const newPos = currentLeft + areaWidth;

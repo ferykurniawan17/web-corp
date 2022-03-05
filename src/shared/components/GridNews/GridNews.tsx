@@ -23,6 +23,7 @@ const GridNews = ({ title, articles }: GridNewsProps) => {
         <div className={styles.container}>
           {articles.map((item: ArticleItemType, i: number) => (
             <NewsCard
+              key={`item${item.id}`}
               title={Localize.locale === 'id' ? item.name : item.name_english}
               metaTitle={Localize.locale === 'id' ? item.short_description : item.short_description_english}
               smallTitle

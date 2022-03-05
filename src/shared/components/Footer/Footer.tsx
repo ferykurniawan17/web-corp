@@ -16,7 +16,6 @@ const Footer = ({ pathName }: FooterProps) => {
 
   const handleChange = (e: any) => {
     const lang = e.target.value;
-    console.log('====', lang);
     router.push(pathName, pathName, { locale: lang })
   }
 
@@ -88,9 +87,12 @@ const Footer = ({ pathName }: FooterProps) => {
         </div>
         <div className={styles.footerBottom}>
           <div className={styles.footerBottomLeft}>
-            <select className={styles.langSelection} onChange={handleChange}>
-              <option value={'id'} selected={Localize.locale === 'id'}>ID</option>
-              <option value={'en'} selected={Localize.locale === 'en'}>EN</option>
+            <select
+              className={styles.langSelection} onChange={handleChange}
+              defaultValue={Localize.locale}
+            >
+              <option value={'id'}>{'ID'}</option>
+              <option value={'en'}>{'EN'}</option>
             </select>
           </div>
           <div className={styles.footerBottomRight}>
