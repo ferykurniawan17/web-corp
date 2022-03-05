@@ -20,4 +20,12 @@ export const BlogColumnsSpec = [
   { data: 'video_embed_link' },
   { data: 'status' },
   { data: 'publish_date' },
+  // { "data": "persona_writer" },
+  // { "data": "short_bio" },
+  // { "data": "short_bio_english" },
+  // { "data": "persona_editor" },
+  // { "data": "list_category" },
+  // { "data": "list_subcategory" },
+  // { "data": "list_tags" },
+  // { "data": "list_co_writer" },
 ];

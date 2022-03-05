@@ -34,6 +34,8 @@ module.exports = (phase) => {
     i18n: {
       locales: ['id', 'en'],
       defaultLocale: 'id',
+      localeDetection: false,
     },
+    trailingSlash: true,
   }
 }

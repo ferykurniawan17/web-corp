@@ -5,4 +5,5 @@ export type BannerItemType = {
   alt: string;
   date: string;
   category: string;
+  link: string;
 };

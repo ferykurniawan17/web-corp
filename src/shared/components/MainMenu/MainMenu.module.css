@@ -186,6 +186,8 @@
   opacity: 0.9;
   outline: none;
   border-bottom: 1px solid #fff;
+  resize: none;
+  height: fit-content;
 }
 
 .inputStyle::placeholder {
@@ -267,6 +269,10 @@
   
   .hearderMenuRightSearchDesktop {
     display: none;
+  }
+
+  .inputStyle {
+    font-size: 24px;
   }
 }
 

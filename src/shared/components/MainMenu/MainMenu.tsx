@@ -18,7 +18,7 @@ type MainMenuProps = {
 };
 
 const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
-  const [article, setArticle] = useState<Array<ArticleItemType>>([]);
+  const [articles, setArticles] = useState<Array<ArticleItemType>>([]);
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const refNav = useRef(null);
 
@@ -26,7 +26,7 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
   const [transparent, setTransperant] = useState<boolean>(false);
 
   useEffect(() => {
-    // getNews();
+    getNews();
     setTransperant(transperant);
     window.addEventListener('scroll', () => {
       const menu = document.getElementById('navbarScroll');
@@ -51,9 +51,10 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
         dir: 'asc'
       },
       page: 1,
-      perPage: 6,
+      perPage: 4,
     };
     const { data: articleData } = await post('/public-article/data?group=utama', spec);
+    setArticles(articleData.data);
   }
 
   const handleShowSearch = () => {
@@ -88,8 +89,12 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
             <Search color={(transparent || showSearch) ? '#fff' : 'rgba(0,0,0,.55)'} />
           </button>
           <div className={cx(styles.menuLang, 'headerMenuLang')}>
-            <a href={`/en${pathName}`} className={Localize.locale === 'en' ? styles.active : ''}>EN</a>
-            <a href={`/id${pathName}`} className={Localize.locale === 'id' ? styles.active : ''}>ID</a>
+            <Link href={`/en${pathName}`} locale={false}>
+              <a className={Localize.locale === 'en' ? styles.active : ''}>EN</a>
+            </Link>
+            <Link href={`/id${pathName}`} locale={false}>
+              <a className={Localize.locale === 'id' ? styles.active : ''}>ID</a>
+            </Link>
           </div>
         </div>
         <Navbar.Collapse id="navbarScroll">
@@ -120,8 +125,12 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
             <Search color={(transparent || showSearch) ? '#fff' : 'rgba(0,0,0,.55)'} />
           </button>
           <div className={cx(styles.menuLang, 'headerMenuLang')}>
-            <a href={`/en${pathName}`} className={Localize.locale === 'en' ? styles.active : ''}>EN</a>
-            <a href={`/id${pathName}`} className={Localize.locale === 'id' ? styles.active : ''}>ID</a>
+            <Link href={`/en${pathName}`} locale={false}>
+              <a className={Localize.locale === 'en' ? styles.active : ''}>EN</a>
+            </Link>
+            <Link href={`/id${pathName}`} locale={false}>
+              <a className={Localize.locale === 'id' ? styles.active : ''}>ID</a>
+            </Link>
           </div>
         </div>
       </Container>
@@ -131,17 +140,15 @@ const MainMenu = ({ transperant, pathName }: MainMenuProps) => {
             <Container>
               <div className={styles.menuSearchContent}>
                 <div className={styles.menuSearchContentNav}>
-                  <textarea placeholder={Localize.getText('searchMenuTitle')} className={styles.inputStyle}></textarea>
+                  <textarea rows={2} placeholder={Localize.getText('searchMenuTitle')} className={styles.inputStyle}></textarea>
                   <div className={styles.blockMenu}>
                     <div className={styles.blockItem}>
                       <h3 className={styles.menuTitle}>{Localize.getText('popularMenuItem')}</h3>
                       <SimpleVerticalNav
-                        menus={[
-                          { label: 'JAKI', link: '/' },
-                          { label: 'Blog', link: '/' },
-                          { label: 'Product', link: '/' },
-                          { label: 'Kegiatan', link: '/' },
-                        ]}
+                        menus={articles.map((item: ArticleItemType) => ({
+                          label: item.name,
+                          link: `/blog/detail/${item.slug}`,
+                        }))}
                       />
                     </div>
                     <div className={styles.blockItem}>

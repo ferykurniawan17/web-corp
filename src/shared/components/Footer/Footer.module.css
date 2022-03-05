@@ -31,7 +31,7 @@
 
 .imageColaboration {
   width: 163px;
-  height: 67px;
+  height: fit-content;
 }
 
 .menuContainer {
@@ -120,7 +120,7 @@
   
   .imageColaboration {
     width: 100px;
-    height: auto;
+    height: fit-content;
   }
 
   .instantionRight {

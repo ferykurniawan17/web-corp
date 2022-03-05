@@ -55,10 +55,12 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
   const [areaWidth, setAreaWidth] = useState<number>(0);
   const [currentLeft, setCurrentLeft] = useState<number>(0);
 
-  useLayoutEffect(() => {
-    setAreaWidth(refSlider?.current.offsetWidth);
-    setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);
-  }, []);
+  if (typeof window !== 'undefined') {
+    useLayoutEffect(() => {
+      setAreaWidth(refSlider?.current.offsetWidth);
+      setMaxLeftWidth(ref?.current.offsetWidth - refSlider?.current.offsetWidth);  
+    }, []);
+  }
 
   const handleScrollNext = () => {
     const newPos = currentLeft + areaWidth;
@@ -101,19 +103,6 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
                 />
               ))}
             </div>
-            {/* <ScrollMenu
-              LeftArrow={LeftArrow}
-              RightArrow={RightArrow}
-              scrollContainerClassName={styles.containerScroll}
-            >
-              {menu.map((item: MenuItem, i: number) => (
-                <Card
-                  title={item.label}
-                  key={`nav-${i}`}
-                  link={item.link}
-                />
-              ))}
-            </ScrollMenu> */}
           </div>
           <RightArrow scrollNext={handleScrollNext} />
         </div>

@@ -51,6 +51,7 @@ const BlogLandingPageView = ({
           imageUrl: 'https://pusdatin.kemkes.go.id/assets/js/JssorSlider/img/landscape/x01.jpg.pagespeed.ic.JJ1gF1F7s1.webp',
           category: 'Banner',
           date: format(new Date(item.publish_date), 'dd MMMM yyyy', { locale: Localize.localeDate }),
+          link: `/blog/detail/${item.slug}`,
         }))}
       />
       <CategoryMenu menu={convertMenu()} />

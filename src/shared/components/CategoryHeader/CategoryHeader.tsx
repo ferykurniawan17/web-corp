@@ -20,12 +20,14 @@ const CategoryHeader = (props: CategoryHeaderProps) => {
         <h2 className={styles.title}>{props.categoryName}</h2>
         <div className={styles.menu}>
           {props.menus.map((item: MenuItem, i: number) => (
-            <Link href={item.link || '/'}>
-              <a className={styles.menuItem}>{item.label}</a>
-            </Link>
+            <div className={styles.menuItem}>
+              <Link href={item.link || '/'}>
+                <a>{item.label}</a>
+              </Link>
+            </div>
           ))}
         </div>
-      </div>  
+      </div>
     </div>
   );
 };

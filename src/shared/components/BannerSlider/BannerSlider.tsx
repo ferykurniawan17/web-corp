@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './BannerSlider.module.css';
-import cx from 'classnames';
-import Button from '@mui/material/Button';
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -13,8 +11,6 @@ type BannerSliderProps = {
 };
 
 const BannerSlider = ({ data }: BannerSliderProps) => {
-  const [active, setActive] = useState<number>(0);
-
   return (
     <div className={'banner-slider'}>
       <Carousel

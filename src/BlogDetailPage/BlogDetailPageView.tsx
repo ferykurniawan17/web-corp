@@ -8,6 +8,7 @@ import { useLocalization } from '../shared/contexts/LocalizationContext';
 import format from 'date-fns/format';
 import { Container } from 'react-bootstrap';
 import parse from 'html-react-parser';
+import styles from './BlogDetailPageView.module.css';
 
 type BlogDetailPageViewProps = {
   categories: Array<CategoryItemType>;
@@ -29,7 +30,7 @@ const BlogDetailPageView = ({ detailArticle, otherArticle, pathName }: BlogDetai
           coWritter={['Aditya Gagat']}
           date={format(new Date(detailArticle.publish_date), 'dd MMMM yyyy', { locale: Localize.localeDate })}
         />
-        <Container>
+        <Container className={styles.container}>
           {parse(detailArticle.description_english)}
         </Container>
         {!!otherArticle && (
@@ -40,7 +41,7 @@ const BlogDetailPageView = ({ detailArticle, otherArticle, pathName }: BlogDetai
           />
         )}
       </div>
-      <Footer />
+      <Footer pathName={pathName} />
     </>
   );
 }
