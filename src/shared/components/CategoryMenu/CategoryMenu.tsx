@@ -108,7 +108,7 @@ const CategoryMenu = ({ menu }: CategoryMenuProps) => {
 
   return (
     <div className={styles.container}>
-      <Container>
+      <Container className={styles.containerContent}>
         <div className={styles.mainContainer}>
           {showArrow && <LeftArrow scrollPrev={handleScrollPrev} />}
           <div ref={refSlider} className={styles.sliderContainer}>

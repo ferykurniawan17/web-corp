@@ -80,6 +80,11 @@
     display: inline-flex;
   }
 
+  .containerContent {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .sliderContainer {
     overflow-x: scroll;
   }
